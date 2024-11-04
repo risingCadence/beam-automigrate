@@ -93,6 +93,8 @@ library beam-automigrate-test-utils
   exposed-modules:
     Database.Beam.AutoMigrate.TestUtils
   ghc-options: -Wall
+  if !flag(build-readme)
+    buildable: False
 
 test-suite beam-automigrate-tests
   type:               exitcode-stdio-1.0
@@ -111,6 +113,8 @@ test-suite beam-automigrate-tests
 
   default-language:   Haskell2010
   default-extensions: OverloadedStrings
+  if !flag(build-readme)
+    buildable: False
 
 executable beam-automigrate-integration-tests
   hs-source-dirs:     integration-tests tests
@@ -138,7 +142,8 @@ executable beam-automigrate-integration-tests
   default-extensions:
     OverloadedStrings
     ScopedTypeVariables
-
+  if !flag(build-readme)
+    buildable: False
 executable beam-automigrate-examples
   hs-source-dirs:     examples
   main-is:            Main.hs
@@ -177,6 +182,8 @@ executable beam-automigrate-examples
 
   if flag(ghcipretty)
     build-depends: pretty-simple
+  if !flag(build-readme)
+    buildable: False
 
 executable beam-automigrate-large-migration-test
   hs-source-dirs:     large-migration-test
@@ -192,6 +199,8 @@ executable beam-automigrate-large-migration-test
   default-language:   Haskell2010
   default-extensions: OverloadedStrings
   ghc-options:        -Wall -O2 -rtsopts -threaded
+  if !flag(build-readme)
+    buildable: False
 
 benchmark beam-automigrate-bench
   type:             exitcode-stdio-1.0
