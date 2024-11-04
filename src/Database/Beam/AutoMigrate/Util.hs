@@ -93,7 +93,7 @@ sequenceExceptT ::
   t (ExceptT w m a) ->
   ExceptT w m (t a)
 sequenceExceptT es = do
-  es' <- liftA2 (traverse runExceptT es)
+  es' <- (traverse runExceptT es)
   ExceptT (return (sequenceEither es'))
 
 -- NOTE(adn) Unfortunately these combinators are not re-exported by beam.
