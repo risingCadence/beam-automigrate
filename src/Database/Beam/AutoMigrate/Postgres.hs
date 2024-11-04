@@ -10,6 +10,7 @@ module Database.Beam.AutoMigrate.Postgres
   )
 where
 
+import Control.Monad
 import Control.Monad.State
 import Data.Bits (shiftR, (.&.))
 import Data.ByteString (ByteString)
